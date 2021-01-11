@@ -8,10 +8,16 @@ Features include caching api results to minimize network overhead and native sup
 # Initialize SDK with a client specific url and api authorization token
 gb = GreenbyteSDK(client_url, auth_token)
 
+# Get a list of sites available
+gb.sites()
+
 # Return a list of Pandas DataFrames showing the energy exported from a site in the past week 
-energy_export = gb.sites('Backen').devices().signals('Energy Export')
+gb.sites('Backen').devices().signals('Energy Export')
 
 # Because the new data for Backend was already cached the SDK only calls for the new Berget data
-energy_export = gb.sites('Backen', 'Berget).devices().signals('Energy Export')
+gb.sites(['Backen', 'Berget']).devices().signals('Energy Export')
+
+# Drill into specific deviecs and signals
+gb.sites('Berget').devices([1, 3]).signals(['Energy Export', 'Lost Production'])
 
 ```
