@@ -1,5 +1,5 @@
 ## GreenbyteAnalysisSDK: seamless data analysis with the Greenbyte API
-Note: This sdk is not affiliated with Greenbyte. It was written purely for personal convenience when using the official API and is provided as-is
+Note: This sdk is not affiliated with Greenbyte. It was written purely for personal convenience when using the official API and is provided as-is.
 Learn more about the Greenbyte API at https://developer.greenbyte.com/
 
 ### Simplify working with Greenbyte API by providing a wrapper gearded towards data anaylsis
