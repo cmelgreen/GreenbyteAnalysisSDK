@@ -2,7 +2,7 @@
 Note: This sdk is not affiliated with Greenbyte. It was written purely for personal convenience when using the official API and is provided as-is.
 Learn more about the Greenbyte API at https://developer.greenbyte.com/
 
-### Simplify working with Greenbyte API by providing a wrapper gearded towards data anaylsis
+### Simplify working with Greenbyte API with a wrapper gearded towards performant data anaylsis
 
 Features include caching api results to minimize network overhead and native support for Pandas dataframes.
 
