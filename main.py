@@ -11,7 +11,6 @@ class GreenbyteSDK:
     # populate each site with devices
     # Add attribute for default time period so someone can GreenbyteSDK.set_time('1w') as a new default
     def __init__(self, url, api_token):
-        print('INITIALIZING GREENBYTE API')
         # Set up header
         self.__url = url
         self.__header = {"Breeze-ApiToken": api_token}
@@ -22,15 +21,14 @@ class GreenbyteSDK:
         self.__json_signal_cache = self._get_data_signals()
 
         # Create Sites
-        self.__sites = {(i['site']['title'], i['site']['siteId']) for i in self.__json_device_cache}
+        self.__sites = {(cached['site']['title'], cached['site']['siteId']) for cached in self.__json_device_cache}
         self.__sites = SiteList([Site(site, self) for site in self.__sites], self)
 
-        self.__signals_dict = {i['title']: i['dataSignalId'] for i in self.__json_signal_cache}
+        self.__signals_dict = {cached['title']: cached['dataSignalId'] for cached in self.__json_signal_cache}
 
         today = dt.now()
         self.__start = dt(today.year, today.month, today.day, 0, 0, 0) - tdt(days=7)
         self.__end = today
-
 
 
         # Populate sites with associated devices
@@ -94,9 +92,7 @@ class GreenbyteSDK:
     def _api_call(self, call, **kwargs):
         url = self.__url + str(call) + '.json?' + '&'.join([str(key) + '=' + str(value) for key, value in kwargs.items() if value != ''])\
             .replace('\'', '').replace('[', '').replace(']', '')
-        print('calling:', url)
         response = requests_get(url, headers=self.__header)
-        print('response: ', response)
         if response.status_code == 200:
             self.__connection = True
             return json_loads(response.text)
