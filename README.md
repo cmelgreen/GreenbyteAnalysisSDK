@@ -1,6 +1,6 @@
 ## GreenbyteAnalysisSDK is a wrapper geared for data analysis around the Greenbyte API
 
-GreenbyteSDK simplifies working with Greenbyte API. Features include caching api results to minimize network overhead and native support for Pandas dataframes. Any valid API call is producible.
+GreenbyteSDK simplifies working with Greenbyte API. Features include caching api results to minimize network overhead and native support for Pandas dataframes
 
 ```
 # Initialize SDK with a client specific url and api authorization token
