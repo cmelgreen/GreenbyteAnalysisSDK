@@ -4,7 +4,7 @@ GreenbyteSDK simplifies working with Greenbyte API by providing a wrapper gearde
 
 Features include caching api results to minimize network overhead and native support for Pandas dataframes
 
-```
+```python
 # Initialize SDK with a client specific url and api authorization token
 gb = GreenbyteSDK(client_url, auth_token)
 
