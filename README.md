@@ -12,7 +12,7 @@ gb = GreenbyteSDK(client_url, auth_token)
 
 # Get a list of sites available and then devices at a site
 gb.sites()
-gb.sites('Backend').devices()
+gb.sites('Backen').devices()
 
 
 # Return a list of Pandas DataFrames showing the energy exported from a site in the past week 
