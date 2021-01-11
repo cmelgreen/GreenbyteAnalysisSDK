@@ -112,7 +112,6 @@ class GreenbyteSDK:
             return self.sites([sites])
 
     # Get time series data via API call
-    # To-Do: Fix signal_dict so it's not hardcoded (or hardcoded with better options)
     def signals(self, device_ids, signal_keys, start_date=None, end_date=None, aggregate='', calculation=''):
         if start_date is None:
             start_date = self.__start
@@ -453,7 +452,6 @@ class Signal:
         (self.__title, self.__data, _) = signal
         self.__obj = obj
         self.__api = api
-
 
         self._update_api_cache()
 

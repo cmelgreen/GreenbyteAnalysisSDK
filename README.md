@@ -1,15 +1,29 @@
-## GreenbyteAnalysisSDK is a wrapper geared for data analysis around the Greenbyte API
+## GreenbyteAnalysisSDK: seamless data analysis with the Greenbyte API
+Note: This sdk is not affiliated with Greenbyte. It was written purely for personal convenience when using the official API and is provided as-is.
+Learn more about the Greenbyte API at https://developer.greenbyte.com/
 
-GreenbyteSDK simplifies working with Greenbyte API. Features include caching api results to minimize network overhead and native support for Pandas dataframes. Any valid API call is producible.
+### Simplify working with Greenbyte API with a wrapper gearded towards performant data anaylsis
 
-```
+Features include caching api results to minimize network overhead and native support for Pandas dataframes.
+
+```python
 # Initialize SDK with a client specific url and api authorization token
 gb = GreenbyteSDK(client_url, auth_token)
 
-# Return a list of Pandas DataFrames showing the energy exported from a site in the past week 
-energy_export = gb.sites('Backen').devices().signals('Energy Export')
+# Get a list of sites available and then devices at a site
+gb.sites()
+gb.sites('Backen').devices()
 
-# Because the new data for Backend was already cached the SDK only calls for the new Berget data
-energy_export = gb.sites('Backen', 'Berget).devices().signals('Energy Export')
+
+# Return a list of Pandas DataFrames showing the energy exported from a site in the past week 
+gb.sites('Backen').devices().signals('Energy Export')
+
+# Because the data for the Backen site was already cached the SDK only calls 
+# for the new Berget data but returns results for both
+gb.sites(['Backen', 'Berget']).devices().signals('Energy Export')
+
+# Drill into specific deviecs and signals
+gb.sites('Berget').devices([1, 3]).signals(['Energy Export', 'Lost Production'])
 
 ```
+
