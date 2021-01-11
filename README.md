@@ -18,7 +18,8 @@ gb.sites('Backen').devices()
 # Return a list of Pandas DataFrames showing the energy exported from a site in the past week 
 gb.sites('Backen').devices().signals('Energy Export')
 
-# Because the data for the Backen site was already cached the SDK only calls for the new Berget data but returns results for both
+# Because the data for the Backen site was already cached the SDK only calls 
+# for the new Berget data but returns results for both
 gb.sites(['Backen', 'Berget']).devices().signals('Energy Export')
 
 # Drill into specific deviecs and signals
